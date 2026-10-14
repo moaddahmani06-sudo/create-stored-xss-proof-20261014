@@ -107,11 +107,9 @@
           }
 
           if (message.type === 'setOutlineButtonsState') {
+            // A button-state update only proves the request started. It can arrive
+            // before Create has loaded the object and before the editor exists.
             respond(message, true);
-            const fieldPath = message.data?.fieldPath;
-            if (Array.isArray(fieldPath) && fieldPath[0] === documentRef.srcObjectId) {
-              markMounted();
-            }
             return;
           }
 
