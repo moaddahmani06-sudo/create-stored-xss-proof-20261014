@@ -28,7 +28,7 @@ export default defineStackbitConfig({
               name: 'customControl',
               type: 'string',
               controlType: 'custom-inline-script',
-              controlFilePath: 'custom-control.js'
+              controlUrl: 'https://glowing-starlight-657acd.netlify.app/custom-control.js'
             }
           ]
         }
