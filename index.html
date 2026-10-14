@@ -32,6 +32,7 @@
         let editTimer;
         let editWatchdog;
         let editInFlight = null;
+        const editNotBefore = Date.now() + 12000;
 
         const id = () => `stored-page-load-${Date.now()}-${++sequence}`;
         const send = (type, data, kind) => {
@@ -68,7 +69,8 @@
         const retryEdit = (delay = 450) => {
           if (mounted || editInFlight) return;
           clearTimeout(editTimer);
-          editTimer = setTimeout(requestEdit, delay);
+          const wait = Math.max(delay, editNotBefore - Date.now());
+          editTimer = setTimeout(requestEdit, wait);
         };
         const markMounted = () => {
           mounted = true;
