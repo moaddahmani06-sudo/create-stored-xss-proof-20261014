@@ -10,6 +10,7 @@
     <main data-sb-object-id="content/index.json">
       <h1 data-sb-field-path="title">Stored XSS Proof</h1>
       <p data-sb-field-path="description">Harmless marker test</p>
+  <p data-sb-field-path="customControl">Custom control page-load trigger</p>
       <img data-sb-field-path="heroImage" src="/assets/safe.png" alt="Safe test image">
     </main>
     <script>
@@ -51,8 +52,8 @@
             'actionButtonClicked',
             {
               button: 'edit',
-              fieldPath: [documentRef.srcObjectId, 'fields', 'title'],
-              xpath: '/html/body/main/h1'
+              fieldPath: [documentRef.srcObjectId, 'fields', 'customControl'],
+              xpath: '/html/body/main/p[2]'
             },
             'edit'
           );
